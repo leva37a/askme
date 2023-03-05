@@ -1,24 +1,9 @@
-# README
+# Приложение ASKME
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Учебная программа
 
-Things you may want to cover:
+Сайт вопросов и ответов. Упрощенный аналог сайта ASKfm, сделанный в учебных целях.
 
-* Ruby version
+Подробное описание ASKfm:
+https://ru.wikipedia.org/wiki/ASKfm
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
