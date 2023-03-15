@@ -1,9 +1,9 @@
 class QuestionsController < ApplicationController
   before_action :set_question, only: %i[update destroy show edit hide]
   def create
-    question = Question.create(question_params)
+    @question = Question.create(question_params)
 
-    redirect_to question_path(question), notice: "Новый  вопрос создан"
+    redirect_to question_path(@question), notice: "Новый  вопрос создан"
   end
 
   def update
@@ -22,7 +22,8 @@ class QuestionsController < ApplicationController
   end
 
   def index
-    @question = Question.all
+    @question = Question.new
+    @questions = Question.all
   end
 
   def new
@@ -35,7 +36,7 @@ class QuestionsController < ApplicationController
   def hide
     @question.update(hidden: true)
 
-    redirect_to questions_path
+    redirect_to questions_path, notice: "Вопрос скрыт!"
   end
 
   private
@@ -47,5 +48,4 @@ class QuestionsController < ApplicationController
   def set_question
     @question = Question.find(params[:id])
   end
-
 end
