@@ -1,4 +1,7 @@
 class SessionsController < ApplicationController
+  def new
+  end
+
   def create
     user_params = params.require(:session)
     user = User.find_by(email: user_params[:email])
@@ -12,6 +15,9 @@ class SessionsController < ApplicationController
     end
   end
 
-  def new
-  end
+  def destroy
+  session.delete(:user_id)
+
+  redirect_to root_path, notice: 'Вы вышли из аккаунта'
+end
 end
