@@ -3,7 +3,10 @@ class User < ApplicationRecord
 
   before_save :downcase_nickname
 
-  validates :email, presence: true, uniqueness: true
+  validates :nickname, uniqueness: true, length: {maximum: 40},
+                       format: { with: /\A[a-zA-Z\d_]+\z/ }
+  validates :email, presence: true, uniqueness: true,
+                    format: { with: /\A[a-z\d_+.\-]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/ }
 
   def downcase_nickname
     nickname.downcase!
