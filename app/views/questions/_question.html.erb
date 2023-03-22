@@ -7,6 +7,7 @@
     <%= l(question.created_at, format: :short) %>
   </div>
   <div>
+    <% if current_user == question.user %>
     <%= link_to fa_icon("pencil"), edit_question_path(question), 
       title: "Редактировать вопрос" %>
     <%= button_to fa_icon("eye-slash"), hide_question_path(question), method: :put, title: "Скрыть вопрос", form: { data: { turbo_confirm: "Точно скрыть вопрос?" }}unless question.hidden? %>
@@ -14,4 +15,5 @@
       method: :delete, title:"Удалить вопрос", 
       form: { data: { turbo_confirm: "Точно удалить вопрос?" } } %>
   </div>
+  <% end %>
 </div>
