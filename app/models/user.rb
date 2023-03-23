@@ -3,6 +3,8 @@ class User < ApplicationRecord
 
   before_validation :downcase_nickname, :downcase_email
 
+  validates :header_color, format: { with: /\A#([a-f0-9]{3}){1,2}\z/i }
+
   validates :nickname, presence: true, uniqueness: true, length: {maximum: 40},
                        format: { with: /\A\w+\z/ }
   validates :email, presence: true, uniqueness: true,
