@@ -1,0 +1,10 @@
+<div class="container text-center">
+  <p class="title-sm text-grey">
+    У этого пользователя пока нет ни одного вопроса
+  </p>
+  <div class="mt-lg mb-lg fa-4x text-light-grey">
+    <%= fa_stacked_icon 'question', base: 'circle-o' %>
+  </div>
+  <%= link_to "Дай, спрошу!", new_question_path(user_id: user.id),
+  class: 'button button-main' %>
+</div>
