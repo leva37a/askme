@@ -1,5 +1,15 @@
-<div class="mb-sm">
-  <%= simple_format h(question.body) %>
+<div class="question-author">
+  <div class="mb-sm">
+    <%= simple_format h(question.body) %>
+  </div>
+
+  <% if question.author.present? %>
+    <div class="mb-sm text-dark-red">Вопрос от:
+      <%= link_to "@#{question.author.nickname}", user_path(question.author) %>
+    </div>
+  <% else %>
+    <div class="mb-sm text-dark-red">Вопрос от: Аноним</div>  
+  <% end %>
 </div>
 
 <% if question.answer.present? %>
