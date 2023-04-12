@@ -54,7 +54,11 @@ class UsersController < ApplicationController
   end
 
   def set_user
-    @user = User.find(params[:id])
+    if params[:id].match?(/\A\d+\Z/)
+      @user = User.find(params[:id])
+    else
+      @user = User.find_by_nickname(params[:id])
+    end
   end
 
   def user_params
